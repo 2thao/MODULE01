@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4</title>
+</head>
+
+<body>
+    <script>
+
+        //Bài 4.1: Viết chương trình nhập điểm của một sinh viên cho các môn: Toán,Vật Lý,Hoá Học. Sau đó hiển thị tổng điểm và điểm trung bình 3 môn này.
+        let ten = prompt("nhap ten sinh vien")
+        let toan = parseFloat(prompt("nhap diem toan"))
+        let ly = parseFloat(prompt("nhap diem ly"))
+        let hoa = parseFloat(prompt("nhap diem hoa"))
+        let trungBinh = (toan + ly + hoa) / 3
+        console.log("diem trung binh toan ly hoa cua " + ten + " la " + trungBinh)
+
+
+        // Bài 4.2: Viết chương trình nhập một giá trị là độ 0C (Celsius) và chuyển nó sang độ 0F (Fahrenheit). [Hướng dẫn: C/5 = (F-32)/9].
+        let c = parseFloat(prompt("nhap do C"))
+        let f = (c * 9 / 5) + 32
+        console.log(c + "C bang " + f + "F")
+    </script>
+</body>
+
+</html>

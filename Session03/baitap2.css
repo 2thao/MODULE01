@@ -1,0 +1,22 @@
+html {
+    text-align: center;
+}
+
+h1 {
+    font-size:xxx-large;
+}
+
+strong {
+    color: rgb(59, 145, 203);
+}
+
+li {
+    display: inline-block;
+    list-style: none;
+    background-color: black;
+    color: beige;
+    width: 120px;
+    height: 25px;
+    padding: 8px;
+    margin: 20px;
+}
