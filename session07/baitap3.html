@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    Time: <input type="time" id="time" value="18:00:00">
+
+    <button type="button" onclick="showMessage()">Insert your time</button>
+
+    <script>
+        // Bài 3: Viết chương trình cho phép người dùng nhập vào số giờ trong ngày.
+        // Nếu trước 10h thì hiển thị : “Good morning”.
+        // Nếu thời gian chưa tới 20h thì hiển thị : “Good day”.
+        // -Nếu sau 20h hiển thị : “Good evening”.
+
+        function showMessage() {
+            let timeTag = document.getElementById("time");
+            let selectedTime = timeTag.value;
+            let morning = "10:00"
+            let day = "20:00"
+            console.log(selectedTime)
+            if (selectedTime == morning) {
+                console.log("Good morning")
+            } else if (selectedTime < day) {
+                console.log("Good day")
+            } else {
+                console.log("Good evening")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

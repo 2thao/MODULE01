@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai tap 9</title>
+</head>
+
+<body>
+    <script>
+        function average(toan, li, hoa, van, su, dia) {
+            const tongMon = 6
+            const tongDiem = toan + li + hoa + van + su + dia
+            const trungBinh = tongDiem / tongMon
+            return trungBinh
+        }
+
+        function evaluate(diem) {
+            console.log(diem)
+            if (diem >= 8 && diem <= 10) {
+                return 'xep loai GIOI';
+            } if (diem >= 6.5 && diem <= 7.9) {
+                return 'xep loai KHA';
+            } if (diem > 5 && diem <= 6.4) {
+                return 'xep loai TRUNGBINH';
+            } else {
+                return 'xep loai YEU';
+            }
+        }
+        let toan = parseFloat(prompt('nhap diem toan'))
+        let li = parseFloat(prompt('nhap diem li'))
+        let hoa = parseFloat(prompt('nhap diem hoa'))
+        let van = parseFloat(prompt('nhap diem van'))
+        let su = parseFloat(prompt('nhap diem su'))
+        let dia = parseFloat(prompt('nhap diem dia'))
+
+        let tb = average(toan, li, hoa, van, su, dia)
+        let gh = evaluate(tb)
+        document.write(gh)
+
+    </script>
+</body>
+
+</html>

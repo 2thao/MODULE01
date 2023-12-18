@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 5em;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Bài 6: Viết chương trình cho phép người dùng nhập màu vào kiểm tra.
+        // Nếu nhập 1 trong các màu : xanh, đỏ,vàng thì hiển thị màu người dùng nhập
+        // Nếu nhập màu khác hiển thị màu không hợp lệ!
+        let mau = prompt("nhap mau")
+        if (mau == "xanh") {
+            document.write(`<p style="color: green;">${mau}</p>`)
+        } else if (mau == "do") {
+            document.write(`<p style="color: red;">${mau}</p>`)
+        } else if (mau == "vang") {
+            document.write(`<p style="color: yellow;">${mau}</p>`)
+        } else {
+            document.write("<p>màu không hợp lệ</p>")
+        }
+
+
+
+
+        
+
+        // let mau = prompt("nhap mau")
+        // const COLOR = {
+        //     "xanh": "green",
+        //     "do": "red",
+        //     "vang": "yellow",
+        // }
+        // switch (mau) {
+        //     case "xanh":
+        //     case "do":
+        //     case "vang":
+        //         let color = COLOR[mau]
+        //         document.write(`<p class="${mau};">${mau}</p>`)
+        //         break;
+        //     default:
+        //         document.write("màu không hợp lệ")
+        //         break;
+        // }
+
+
+    </script>
+</body>
+
+</html>
