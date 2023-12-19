@@ -9,35 +9,23 @@
 
 <body>
     <script>
-        function average(toan, li, hoa, van, su, dia) {
-            const tongMon = 6
-            const tongDiem = toan + li + hoa + van + su + dia
-            const trungBinh = tongDiem / tongMon
-            return trungBinh
-        }
-
-        function evaluate(diem) {
-            console.log(diem)
-            if (diem >= 8 && diem <= 10) {
-                return 'xep loai GIOI';
-            } if (diem >= 6.5 && diem <= 7.9) {
-                return 'xep loai KHA';
-            } if (diem > 5 && diem <= 6.4) {
-                return 'xep loai TRUNGBINH';
-            } else {
-                return 'xep loai YEU';
-            }
-        }
         let toan = parseFloat(prompt('nhap diem toan'))
         let li = parseFloat(prompt('nhap diem li'))
         let hoa = parseFloat(prompt('nhap diem hoa'))
         let van = parseFloat(prompt('nhap diem van'))
         let su = parseFloat(prompt('nhap diem su'))
         let dia = parseFloat(prompt('nhap diem dia'))
+        let average = (toan + li + hoa + van + su + dia) / 6
 
-        let tb = average(toan, li, hoa, van, su, dia)
-        let gh = evaluate(tb)
-        document.write(gh)
+        if (average >= 8 && average <= 10) {
+            console.log('xep loai GIOI')
+        } else if (average >= 6.5 && average <= 7.9) {
+            console.log('xep loai KHA')
+        } else if (average > 5 && average <= 6.4) {
+            console.log('xep loai TRUNGBINH')
+        } else {
+            console.log('xep loai YEU')
+        }
 
     </script>
 </body>
