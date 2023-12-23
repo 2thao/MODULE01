@@ -4,22 +4,64 @@
 <body>
     <script>
         // Bài 5: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau
+        // pattern1
+        // let n = parseInt(prompt("nhap so sao"))
+        // for (let i = 1; i <= n; i++) {
+        //     for (let k = 1; k <= i; k++) {
+        //         document.write("*" + " ")
+        //     } document.write("<br/>")
+        // }
+        // patttern2
+        // let n = parseInt(prompt("nhap so sao"))
+        // for (let i = 1; i <= n; i++) {
+        //     for (let k = i; k <= n; k++) {
+        //         document.write( "*" + " ")
+        //     }document.write("<br/>")
+        // }
+        // pattern3
+        // let arr = []
+        // let asterisk = parseInt(prompt("nhap so sao"))
+        // for (let i = 0; i < asterisk; i++) {
+        //     for (let k = 0; k < asterisk; k++) {
+        //         if (k < (asterisk - 1 - i)) {
+        //             document.write("&nbsp;&nbsp;")
+        //         }
+        //         else {
+        //             document.write("*")
+        //         }
+        //     } document.write("<br/>")
+        // }
 
+        // for (let i = 0; i < asterisk; i++) {
+        //     // print space
+        //     let k = asterisk - 1
+        //     for (; k > i; k--) {
+        //         document.write("&nbsp;&nbsp;")
+        //     }
+        //     for (; k >= 0; k--) {
+        //         document.write("*")
+        //     }
+        //     // print asterisk 
+        //     document.write("<br/>")
+        // }
+
+        // pattern4
         let n = parseInt(prompt("nhap so sao"))
-        for (let i = 1; i <= n; i++) {
-            for (let k = 1; k <= i; k++) {
-                document.write("*" + " ")
+        for (let i = 0; i < n; i++) {
+            for (let k = 0; k < n; k++) {
+                document.write("&nbsp;&nbsp;")
+                if (k < n - i) {
+                    document.write("*")
+                } 
+                // else{
+                //     document.write("&nbsp;&nbsp;")
+                // }
             } document.write("<br/>")
+
         }
 
-        let n = parseInt(prompt("nhap so sao"))
-        for (let i = 1; i <= n; i++) {
-            for (let k = i; k <= n; k++) {
-                document.write( "*" + " ")
-            }document.write("<br/>")
-        }
 
-   
+
 
 
     </script>

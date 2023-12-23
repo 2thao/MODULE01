@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        // Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2 số chẵn.
+        // Ví dụ nếu bạn nhập vào 245468 thì kết quả của chương trình sẽ là 2-454-6-8.
+        let string = prompt("nhap so phan tu")
+        let arr = string.split('')
+        console.log(arr)
+        document.write(arr[0])
+        for (i = 1; i < arr.length; i++) {
+            if (arr[i - 1] % 2 == 0 && arr[i] % 2 == 0) {
+                document.write(`-`)
+            }
+            document.write(arr[i])
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
