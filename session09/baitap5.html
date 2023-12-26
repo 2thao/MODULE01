@@ -10,21 +10,33 @@
         // Bài 5: Cho 1 một mảng  let  numbers=[1,5,8,7,9,6,5,41,2,6,55,4,8];
         // Sắp xếp các phần tử trong mảng theo thứ tự tăng dần.
 
-        let numbers = [1, 5, 8, 7, 9, 6, 5, 41, 2, 6, 55, 4, 8];
-        for (let i = 0; i < numbers.length-1; i++) {
-            for (let j=i+1; j< numbers.length; j++) {
-                if (numbers[i] > numbers[j]) {
-                    let temp = numbers[i]
-                    numbers[i] = numbers[j]
-                    numbers[j] = temp
-                }
-            }
-        }
-        console.log(numbers)
-           
-
-        // numbers.sort(function(a, b){return a-b});
+        // let numbers = [1, 5, 8, 7, 9, 6, 5, 41, 2, 6, 55, 4, 8];
+        // for (let i = 0; i < numbers.length-1; i++) {
+        //     for (let j=i+1; j< numbers.length; j++) {
+        //         if (numbers[i] > numbers[j]) {
+        //             let temp = numbers[i]
+        //             numbers[i] = numbers[j]
+        //             numbers[j] = temp
+        //         }
+        //     }
+        // }
         // console.log(numbers)
+
+
+
+
+        let mang = [7, 3, 9, 4, 5, 8, 2, 1];
+        for (let i = 0; i < mang.length; i++) {
+            for (let j = 0; j < mang.length; j++) {
+                if (mang[j] > mang[j + 1]) {
+                    temp = mang[j];
+                    mang[j] = mang[j + 1];
+                    mang[j + 1] = temp
+
+                } 
+            }console.log(mang)
+        }
+
 
     </script>
 

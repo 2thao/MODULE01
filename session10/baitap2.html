@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Bài 2: Viết hàm kiểm tra xem số người dùng nhập vào có phải là số nguyên tố hay không?
+        //  (số nguyên tố là số nguyên dương chỉ có 2 ước là 1 và chính nó).
+
+        function checkPrime(number) {
+            let prime = true;
+            if (number <= 1) {
+                prime = false
+            } else {
+                for (let i = 2; i < number; i++) {
+                    if (number % i === 0) {
+                        prime = false;
+                    }
+                }
+                if (prime) {
+                    console.log(`${number} la so nguyen to`)
+                } else {
+                    console.log(`${number} khong la so nguyen to`)
+                }
+            }
+
+        }
+
+        let number = parseInt(prompt("Enter any number"));
+        checkPrime(number);
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

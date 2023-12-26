@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Bài 1: Viết chương trình cho người dùng nhập vào 3 số
+        // viết hàm kiểm tra để tìm ra số bé nhất và in ra số đó
+
+        let result = function (a, b, c) {
+            let min = a
+            if (a < b && a < c) {
+                min = a
+            } else if (b < min && b < c) {
+                min = b
+            } else {
+                min = c
+            }
+            return min
+        }
+        let a = parseInt(prompt("nhap so a"))
+        let b = parseInt(prompt("nhap so b"))
+        let c = parseInt(prompt("nhap so c"))
+        console.log(result(a, b, c))
+
+    </script>
+</body>
+
+</html>

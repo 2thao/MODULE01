@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function demKyTu(string) {
+            let dem = {};
+            for (let i = 0; i < string.length; i++) {
+                let kyTu = string[i];
+                if (!dem[kyTu]) {
+                    dem[kyTu] = 1;
+                } else {
+                    dem[kyTu]++;
+                }
+            }
+            for (let kyTu in dem) {
+                console.log('Ky tu ' + kyTu + ' xuat hien ' + dem[kyTu] + ' lan');
+            }
+        }
+
+        let string = prompt("Enter a character string:");
+        demKyTu(string);
+    </script>
+</body>
+
+</html>
