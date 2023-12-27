@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n = prompt("nhap chuoi")
+        let arr = n.split('');
+        let arr1=Array.from(new Set(arr))
+
+        for (let i = 0; i < arr1.length; i++) {
+            let times = 0
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr1[i] == arr[j]) {
+                    times += 1
+                   
+                }
+            } console.log(`${arr1[i]} xuat hien ${times}`)
+
+        }
+
+        
+
+    </script>
+</body>
+
+</html>

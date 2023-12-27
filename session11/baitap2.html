@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Bài 2: cho người dùng nhập đầy đủ tên 1 ngườI
+        // nếu gặp chữ hoa in xuống chữ thường
+        // nếu gặp chữ thường in lên chữ hoa
+        // input: vŨ HỒng VâN
+        // output: Vũ hôNG vÂn
+
+
+        function doiNguoc(name) {
+            let char = ''
+            for (i = 0; i < name.length; i++) {
+                let character = name[i]
+                if (character === character.toUpperCase()) {
+                    char += character.toLowerCase();
+                } else if (character === character.toLowerCase()) {
+                    char += character.toUpperCase();
+                }
+            } return char
+
+        }
+
+        let n = prompt("input your name here")
+        console.log(doiNguoc(n))
+
+    </script>
+</body>
+
+</html>

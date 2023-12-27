@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Bài 1: cho người dùng nhập tên đầy đủ 1 người
+        //     in ra kí tự đầu tiên viết hoa
+        //     input: vũ hồng vân
+        //     output: Vũ Hồng Vân
+
+
+        function inputName(name) {
+            let result = '';
+            let capitalizeNext = true;
+
+            for (let i = 0; i < name.length; i++) {
+                if (capitalizeNext) {
+                    result += name[i].toUpperCase();
+                    capitalizeNext = false;
+                } else if (name[i] === ' ') {
+                    // If the current character is a space, add it to the result and set capitalizeNext to true
+                    result += name[i];
+                    capitalizeNext = true;
+                } else {
+                    result += name[i];
+                }
+            }
+            return result;
+        }
+
+        let n = prompt("Input your name here");
+        console.log(inputName(n));
+
+
+
+    </script>
+</body>
+
+</html>
