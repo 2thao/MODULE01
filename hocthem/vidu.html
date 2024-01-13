@@ -1,42 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Album</title>
   <style>
-    /* Add some basic styles for tasks */
-    .task {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #ccc;
-      padding: 10px;
+    body {
+      font-family: Arial, sans-serif;
     }
 
-    /* Style for the delete button */
-    .delete-button {
-      margin-left: auto; /* Move the delete button to the right */
-      background-color: #ff0000; /* Change the background color as needed */
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
+    #album {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .picture {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
       cursor: pointer;
+    }
+
+    #displayedPicture {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+
+    #displayedPicture img {
+      max-width: 100%;
+      max-height: 80vh;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Sample task list -->
-  <div class="task">
-    <span>Task 1</span>
-    <button class="delete-button">Delete</button>
+  <div id="album">
+    <img src="https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-y-nghia-cho-ngay-moi-hanh-phuc-inkythuatso-09-13-37-31.jpg" class="picture" onclick="displayPicture('https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-y-nghia-cho-ngay-moi-hanh-phuc-inkythuatso-09-13-37-31.jpg')" alt="Picture 1">
+    <img src="https://inkythuatso.com/uploads/thumbnails/800/2023/03/4-hinh-anh-y-nghia-cho-ngay-moi-hanh-phuc-inkythuatso-09-13-37-58.jpg" class="picture" onclick="displayPicture('https://inkythuatso.com/uploads/thumbnails/800/2023/03/4-hinh-anh-y-nghia-cho-ngay-moi-hanh-phuc-inkythuatso-09-13-37-58.jpg')" alt="Picture 2">
+    <img src="https://inkythuatso.com/uploads/thumbnails/800/2023/03/5-hinh-anh-y-nghia-cho-ngay-moi-hanh-phuc-inkythuatso-09-13-38-06.jpg" class="picture" onclick="displayPicture('https://inkythuatso.com/uploads/thumbnails/800/2023/03/5-hinh-anh-y-nghia-cho-ngay-moi-hanh-phuc-inkythuatso-09-13-38-06.jpg')" alt="Picture 3">
+    <!-- Add more images as needed -->
   </div>
 
-  <div class="task">
-    <span>Task 2</span>
-    <button class="delete-button">Delete</button>
-  </div>
+  <div id="displayedPicture" onclick="hidePicture()"></div>
 
-  <!-- Your other tasks go here -->
+  <script>
+    function displayPicture(src) {
+      // Display the clicked picture
+      let displayedPicture = document.getElementById('displayedPicture');
+      displayedPicture.innerHTML = `<img src="${src}" alt="Displayed Picture">`;
+      displayedPicture.style.display = 'block';
+
+      // Hide the scrollbar while the picture is displayed
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hidePicture() {
+      // Hide the displayed picture
+      let displayedPicture = document.getElementById('displayedPicture');
+      displayedPicture.style.display = 'none';
+
+      // Clear the content
+      displayedPicture.innerHTML = '';
+
+      // Restore the scrollbar
+      document.body.style.overflow = 'auto';
+    }
+  </script>
 
 </body>
+
 </html>

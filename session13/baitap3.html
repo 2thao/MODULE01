@@ -79,11 +79,11 @@
         <button id="addbutton" onclick="addTask()">Add</button>
     </div>
     <ul id="taskList">
-        <!-- Tasks will be added dynamically here -->
+       
     </ul>
 
     <script>
-        // Function to add a new task
+       
         function addTask() {
             var taskInput = document.getElementById("taskInput");
             var taskList = document.getElementById("taskList");
@@ -93,11 +93,11 @@
                 return;
             }
 
-            // Create a new list item
+         
             var li = document.createElement("li");
             li.textContent = taskInput.value;
 
-            // Add delete and complete buttons
+         
             var deleteButton = document.createElement("button");
             deleteButton.innerHTML = "&#10008;";
             deleteButton.className = "deletebutton"
@@ -117,10 +117,10 @@
             li.appendChild(deleteButton);
             li.appendChild(completeButton);
 
-            // Add the new task to the list
+          
             taskList.appendChild(li);
 
-            // Clear the input field
+       
             taskInput.value = "";
         }
     </script>
