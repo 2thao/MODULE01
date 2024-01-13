@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1</title>
+</head>
+
+<body>
+    <!-- Khi click vào nút “Hide text”, dòng chữ bên trên sẽ được ẩn đi
+Khi click vào nút “Show text”, dòng chữ bên trên sẽ được hiện ra
+ -->
+    <p id="text">This is a text</p>
+    <button onclick="hideText()">Hide text</button>
+    <button onclick="showText()">Show text</button>
+
+    <script>
+        function showText() {
+            let element = document.getElementById("text")
+            element.style.opacity = "1"
+        }
+        function hideText() {
+            let element = document.getElementById("text")
+            element.style.opacity = "0"
+        }
+
+    </script>
+</body>
+
+</html>

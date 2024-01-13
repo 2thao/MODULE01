@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: beige;
+        }
+
+        #div1 {
+            /* position: relative; */
+            background-color: #f09b9b;
+            padding-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        input[type="text"] {
+            
+            width: 70%;
+            padding: 10px;
+        }
+
+        #addbutton {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            background-color: rgb(204, 74, 165);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #efe9e9;
+        }
+
+        button {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .deletebutton {
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .completebutton {
+            margin-right: 1px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 
+    Tạo một ứng dụng Todo-list
+ -->
+    <div id="div1">
+        <h2>My To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Enter a new task">
+        <button id="addbutton" onclick="addTask()">Add</button>
+    </div>
+    <ul id="taskList">
+        <!-- Tasks will be added dynamically here -->
+    </ul>
+
+    <script>
+        // Function to add a new task
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var taskList = document.getElementById("taskList");
+
+            if (taskInput.value.trim() === "") {
+                alert("Please enter a task.");
+                return;
+            }
+
+            // Create a new list item
+            var li = document.createElement("li");
+            li.textContent = taskInput.value;
+
+            // Add delete and complete buttons
+            var deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "&#10008;";
+            deleteButton.className = "deletebutton"
+            deleteButton.onclick = function () {
+                deleteButton.style.float = "right"
+                taskList.removeChild(li);
+            };
+
+            var completeButton = document.createElement("button");
+            completeButton.innerHTML = "&#10004;";
+            completeButton.className = "completebutton"
+            completeButton.onclick = function () {
+                completeButton.style.justifyContent = "flex-start"
+                li.classList.toggle("completed");
+            };
+
+            li.appendChild(deleteButton);
+            li.appendChild(completeButton);
+
+            // Add the new task to the list
+            taskList.appendChild(li);
+
+            // Clear the input field
+            taskInput.value = "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: rgb(43, 42, 42);
+        }
+
+        .alphabet {
+            color: rgb(214, 247, 123);
+            background-color: rgb(91, 135, 130);
+            font-size: 28px;
+            padding: 10px 20px 10px 20px;
+        }
+
+        #div1 {
+            display: block;
+            margin-top: 200px;
+        }
+
+        #divchild1 {
+            padding-left: 100px;
+            margin: 30px 0px 10px 0px;
+        }
+
+        #divchild2 {
+            padding-left: 125px;
+            margin: 0px 0px 10px 10px;
+        }
+
+        #divchild3 {
+            padding-left: 110px;
+            margin: 0px 0px 10px 15px;
+        }
+
+        #input {
+            margin: 20px 0px 0px 100px;
+            width: 600px;
+            height: 40px;
+            color: bisque;
+            font-size: 30px;
+            background-color: chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        Tạo ra một ứng dụng bàn phím ảo
+     -->
+    <div>
+        <input type="text" id="input">
+    </div>
+
+    <div id="div1">
+        <div id="divchild1">
+            <button onclick="appendToInput('q')">q</button>
+            <button onclick="appendToInput('w')">w</button>
+            <button onclick="appendToInput('e')">e</button>
+            <button onclick="appendToInput('r')">r</button>
+            <button onclick="appendToInput('t')">t</button>
+            <button onclick="appendToInput('y')">y</button>
+            <button onclick="appendToInput('u')">u</button>
+            <button onclick="appendToInput('i')">i</button>
+            <button onclick="appendToInput('o')">o</button>
+            <button onclick="appendToInput('p')">p</button>
+            <button onclick="appendToInput('z')">z</button>
+        </div>
+        <div id="divchild2">
+            <button onclick="appendToInput('a')">a</button>
+            <button onclick="appendToInput('s')">s</button>
+            <button onclick="appendToInput('d')">d</button>
+            <button onclick="appendToInput('f')">f</button>
+            <button onclick="appendToInput('g')">g</button>
+            <button onclick="appendToInput('h')">h</button>
+            <button onclick="appendToInput('j')">j</button>
+            <button onclick="appendToInput('k')">k</button>
+            <button onclick="appendToInput('l')">l</button>
+            <button onclick="removeInput('del')">Delete</button>
+        </div>
+        <div id="divchild3">
+            <button onclick="appendToInput('z')">z</button>
+            <button onclick="appendToInput('x')">x</button>
+            <button onclick="appendToInput('c')">c</button>
+            <button onclick="appendToInput('v')">v</button>
+            <button onclick="appendToInput('b')">b</button>
+            <button onclick="appendToInput('n')">n</button>
+            <button onclick="appendToInput('m')">m</button>
+            <button onclick="appendToInput(' ')">Space</button>
+        </div>
+
+    </div>
+    <script>
+        function design() {
+            let elements = document.getElementsByTagName("button")
+
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].classList.add("alphabet")
+            }
+
+        }
+        console.log(design());
+
+
+        function appendToInput(letter) {
+            let inputField = document.getElementById("input")
+            inputField.value += letter
+            // console.log(typeof inputField);
+        }
+
+        function removeInput(del) {
+            var inputField = document.getElementById("input")
+            // inputField.value
+            console.log(typeof inputField.value);
+        }
+        console.log(removeInput())
+       
+
+
+    </script>
+</body>
+
+</html>
