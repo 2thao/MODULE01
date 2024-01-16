@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        #input {
+            width: 300px;
+        }
+
+        #radio {
+            display: inline;
+            color: red;
+        }
+
+        .studentinfo {
+            border: 1px solid;
+            width: 300px;
+            padding: 20px;
+        }
+
+        .studentlist {
+            border: 1px solid;
+            padding: 20px;
+            width: 700px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .edit-input {
+            width: 80%;
+            max-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rikkei Academy</h1>
+    <div class="container">
+        <div class="studentinfo">
+            <h2 style="margin-left: 30px;">Student Information</h2>
+            <p>Full name<input id="fullNameInput" style="margin-left: 38px;" type="text"
+                    placeholder="Please insert full name"></p>
+            <p>Email <input id="emailInput" style="margin-left: 60px;" type="text" placeholder="Please insert Email">
+            </p>
+            <p>Phone number <input id="phoneInput" style="margin-left: 4px;" type="text"
+                    placeholder="Please insert phone number"></p>
+            <p>Place of birth <input id="pobInput" style="margin-left: 10px;" type="text"
+                    placeholder="Please insert place of birth">
+            </p>
+            <p style="display: inline;">Gender</p>
+            <label style="margin-left: 50px;"> <input class="gender" type="radio" value="Male" /> Male</label>
+            <label> <input class="gender" type="radio" value="Female" /> Female</label>
+            <br>
+            <br>
+            <button onclick="saveData()" style="margin-left: 100px; width: 150px;">Save</button>
+            <br>
+            <br>
+        </div>
+        <div class="studentlist">
+            <h2>Students List</h2>
+            <p>Find a student: <input style="margin-right: 5px; height: 18px;" type="text" id=""><button
+                    style="height: 25px;">Search</button></p>
+            <div>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>PoB</th>
+                            <th>Gender</th>
+                            <th>Action</th>
+                            <th><button>Reorder (A-Z order)</button></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        let students = [];
+
+        function saveData() {
+            let fullName = document.getElementById("fullNameInput").value;
+            let email = document.getElementById("emailInput").value;
+            let phone = document.getElementById("phoneInput").value;
+            let pob = document.getElementById("pobInput").value;
+            let genderElements = document.querySelectorAll(".gender");
+            let selectedGender;
+            genderElements.forEach((element) => {
+                if (element.checked) {
+                    selectedGender = element.value;
+                }
+            });
+
+            let newStudent = {
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                pob: pob,
+                gender: selectedGender,
+            };
+
+            students.push(newStudent);
+            updateTable();
+            clearInputFields();
+        }
+
+        function updateTable() {
+            let tableBody = document.querySelector("#table tbody");
+            tableBody.innerHTML = '';
+
+            students.forEach((student, index) => {
+                let newRow = tableBody.insertRow();
+                newRow.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${student.fullName}</td>
+                    <td>${student.email}</td>
+                    <td>${student.phone}</td>
+                    <td>${student.pob}</td>
+                    <td>${student.gender}</td>
+                    <td>
+                        <button onclick="editRow(${index})">Edit</button>
+                        <button onclick="deleteRow(${index})">Delete</button>
+                    </td>
+                    `;
+            });
+        }
+
+        function editRow(index) {
+            let row = document.querySelector("#table tbody").rows[index];
+
+            for (let i = 1; i < row.cells.length - 1; i++) {
+                let cell = row.cells[i];
+                let cellValue = cell.textContent;
+
+                // Create an input element to make the cell editable
+                let input = document.createElement("input");
+                input.type = "text";
+                input.value = cellValue;
+
+                // Apply a class to the input for styling
+                input.classList.add("edit-input");
+
+                // Replace the cell content with the input element
+                cell.innerHTML = "";
+                cell.appendChild(input);
+            }
+
+            // Replace the "Edit" button with a "Save" button
+            let editButton = row.cells[row.cells.length - 1].querySelector("button");
+            editButton.textContent = "Save";
+            editButton.onclick = function () {
+                saveEditedRow(index);
+            };
+        }
+
+        function saveEditedRow(index) {
+            let row = document.querySelector("#table tbody").rows[index];
+
+            // Iterate over each cell in the row (excluding the first cell, which is the "Order" cell)
+            for (let i = 1; i < row.cells.length - 1; i++) {
+                let cell = row.cells[i];
+                let input = cell.querySelector("input");
+
+                // Replace the input element with the edited text
+                cell.textContent = input.value;
+            }
+
+            // Replace the "Save" button with an "Edit" button
+            let editButton = row.cells[row.cells.length - 1].querySelector("button");
+            editButton.textContent = "Edit";
+            editButton.onclick = function () {
+                editRow(index);
+            };
+        }
+
+
+        function updateStudent(index) {
+            students[index].fullName = document.getElementById("fullNameInput").value;
+            students[index].email = document.getElementById("emailInput").value;
+            students[index].phone = document.getElementById("phoneInput").value;
+            students[index].pob = document.getElementById("pobInput").value;
+
+            clearInputFields();
+            document.querySelector(".studentinfo button:last-child").remove();
+            updateTable();
+        }
+
+        function deleteRow(index) {
+            students.splice(index, 1);
+            updateTable();
+        }
+
+        function clearInputFields() {
+            document.getElementById("fullNameInput").value = "";
+            document.getElementById("emailInput").value = "";
+            document.getElementById("phoneInput").value = "";
+            document.getElementById("pobInput").value = "";
+            document.querySelector(".gender:checked").checked = false; // Uncheck the radio button
+        }
+
+
+
+    </script>
+</body>
+
+</html>
